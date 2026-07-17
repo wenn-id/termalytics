@@ -32,12 +32,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alwan-juliawan/termalytics.git"
+    "url": "git+https://github.com/wenn-id/termalytics.git"
   },
   "bugs": {
-    "url": "https://github.com/alwan-juliawan/termalytics/issues"
+    "url": "https://github.com/wenn-id/termalytics/issues"
   },
-  "homepage": "https://github.com/alwan-juliawan/termalytics#readme",
+  "homepage": "https://github.com/wenn-id/termalytics#readme",
   "engines": {
     "node": ">=20"
   },

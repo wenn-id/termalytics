@@ -5,7 +5,7 @@ Thanks for your interest!
 ## Development
 
 ```bash
-git clone https://github.com/alwan-juliawan/termalytics.git
+git clone https://github.com/wenn-id/termalytics.git
 cd termalytics
 npm install
 npm run build
