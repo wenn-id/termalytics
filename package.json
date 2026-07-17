@@ -1,0 +1,53 @@
+{
+  "name": "termalytics",
+  "version": "1.0.0",
+  "description": "Zero-dependency, modern TypeScript terminal dataviz library & dashboard CLI",
+  "main": "dist/index.js",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "bin": {
+    "termalytics": "./dist/bin/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "node --import tsx --test src/*.test.ts",
+    "check": "npm run build && npm test",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run check"
+  },
+  "keywords": [
+    "cli",
+    "dashboard",
+    "charts",
+    "terminal",
+    "ansi",
+    "dataviz",
+    "typescript",
+    "zero-dependency"
+  ],
+  "author": "Alwan Juliawan <alwanjuliawan02@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alwan-juliawan/termalytics.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alwan-juliawan/termalytics/issues"
+  },
+  "homepage": "https://github.com/alwan-juliawan/termalytics#readme",
+  "engines": {
+    "node": ">=20"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}
