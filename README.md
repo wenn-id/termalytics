@@ -22,14 +22,22 @@
 
 ## Installation
 
+Until the npm registry package is published, install the verified GitHub release tarball:
+
 ```bash
-npm install termalytics
+npm install https://github.com/wenn-id/termalytics/releases/download/v1.0.2/termalytics-1.0.2.tgz
 ```
 
 For global CLI usage:
 
 ```bash
-npm install -g termalytics
+npm install -g https://github.com/wenn-id/termalytics/releases/download/v1.0.2/termalytics-1.0.2.tgz
+```
+
+Then verify:
+
+```bash
+termalytics --help
 ```
 
 ---
