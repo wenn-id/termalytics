@@ -201,6 +201,8 @@ async function main() {
         case "bar": if (parsed.series[0]) out = barChart(parsed.series[0].map((v, i) => ({ label: `r${i+1}`, value: v })), { width: w, title: args.title }); break;
         case "spark": if (parsed.series[0]) out = sparkline(parsed.series[0], { width: w }); break;
         case "gauge": if (parsed.single !== undefined) out = gauge(parsed.single, args.max ?? 100, { width: w, label: parsed.labels?.[0] }); break;
+        case "table": if (parsed.headers && parsed.rows) out = table(parsed.headers, parsed.rows, { title: args.title }); break;
+        case "heatmap": if (parsed.matrix) out = heatmap(parsed.matrix, { title: args.title, rowLabels: parsed.labels, colLabels: parsed.headers }); break;
       }
       process.stdout.write(`\x1b[H\x1b[2J${out}\n`);
     });
