@@ -36,3 +36,23 @@ test("stack joins panels with gap newlines", () => {
   const s = stack(["one", "two"], { gap: 2 });
   assert.strictEqual(s, "one\n\ntwo");
 });
+
+test("titled panel borders stay the same width as the body", () => {
+  for (const title of ["T", "Title", "Longer title"]) {
+    const lines = stripAnsi(panel(["hello world"], { title })).split("\n");
+    const widths = lines.map(line => line.length);
+    assert.deepStrictEqual(
+      widths,
+      widths.map(() => widths[1]),
+      `title ${JSON.stringify(title)} produced widths ${widths.join(",")}`,
+    );
+  }
+});
+
+test("panel widens to fit a title longer than its content", () => {
+  const title = "A very long dashboard title";
+  const lines = stripAnsi(panel(["x"], { title })).split("\n");
+  assert.ok(lines[0]!.includes(title), "title must render in full");
+  assert.strictEqual(lines[0]!.length, lines[1]!.length);
+  assert.strictEqual(lines[0]!.length, lines[2]!.length);
+});

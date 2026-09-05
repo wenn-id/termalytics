@@ -44,18 +44,17 @@ export function panel(content: string[], opts: PanelOptions = {}): string {
     return lines.join("\n");
   }
 
-  const innerW = maxLineLen + padX * 2;
-  const bottomLine = wrap(`└${"─".repeat(innerW)}┘`, borderColor);
-  const sideBar = wrap("│", borderColor);
-
   const titleText = opts.title ?? "";
   const titleLen = stripAnsi(titleText).length;
+  const innerW = Math.max(maxLineLen + padX * 2, titleText ? titleLen + 2 : 0);
+  const bottomLine = wrap(`└${"─".repeat(innerW)}┘`, borderColor);
+  const sideBar = wrap("│", borderColor);
 
   let topLine: string;
   if (titleText) {
     const lhsLen = Math.floor((innerW - titleLen - 2) / 2);
     const rhsLen = innerW - titleLen - 2 - lhsLen;
-    topLine = wrap(`┌─${"─".repeat(lhsLen)} ${wrap(titleText, Color.Bold)} ${"─".repeat(rhsLen)}─┐`, borderColor);
+    topLine = wrap(`┌${"─".repeat(lhsLen)} ${wrap(titleText, Color.Bold)} ${"─".repeat(rhsLen)}┐`, borderColor);
   } else {
     topLine = wrap(`┌${"─".repeat(innerW)}┐`, borderColor);
   }
